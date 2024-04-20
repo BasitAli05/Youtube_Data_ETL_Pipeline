@@ -17,7 +17,7 @@ default_args={
 def extract_data_from_YT_API(ti):
     api_service_name = "youtube"
     api_version = "v3"
-    api_key = "AIzaSyC_w48ekRLFZSfhll8Q0MLqcXlM9wWrpIs"  # set your API key
+    api_key = "AIzaSyC_w48ekRLFZSfhll8Q0MLqcXlM9w*****"  # set your API key
 
     youtube = googleapiclient.discovery.build(api_service_name, api_version, developerKey=api_key)
     request = youtube.commentThreads().list(
