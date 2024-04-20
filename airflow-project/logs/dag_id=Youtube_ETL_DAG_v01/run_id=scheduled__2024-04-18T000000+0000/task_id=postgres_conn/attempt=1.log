@@ -1,0 +1,34 @@
+[2024-04-19T09:23:59.186+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Youtube_ETL_DAG_v01.postgres_conn scheduled__2024-04-18T00:00:00+00:00 [queued]>
+[2024-04-19T09:23:59.197+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Youtube_ETL_DAG_v01.postgres_conn scheduled__2024-04-18T00:00:00+00:00 [queued]>
+[2024-04-19T09:23:59.198+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-04-19T09:23:59.216+0000] {taskinstance.py:2217} INFO - Executing <Task(PostgresOperator): postgres_conn> on 2024-04-18 00:00:00+00:00
+[2024-04-19T09:23:59.221+0000] {standard_task_runner.py:60} INFO - Started process 20023 to run task
+[2024-04-19T09:23:59.225+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Youtube_ETL_DAG_v01', 'postgres_conn', 'scheduled__2024-04-18T00:00:00+00:00', '--job-id', '311', '--raw', '--subdir', 'DAGS_FOLDER/Youtube_ETL_dag.py', '--cfg-path', '/tmp/tmp2tponrxm']
+[2024-04-19T09:23:59.228+0000] {standard_task_runner.py:88} INFO - Job 311: Subtask postgres_conn
+[2024-04-19T09:23:59.284+0000] {task_command.py:423} INFO - Running <TaskInstance: Youtube_ETL_DAG_v01.postgres_conn scheduled__2024-04-18T00:00:00+00:00 [running]> on host dcc0a230a4ea
+[2024-04-19T09:23:59.378+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='basit' AIRFLOW_CTX_DAG_ID='Youtube_ETL_DAG_v01' AIRFLOW_CTX_TASK_ID='postgres_conn' AIRFLOW_CTX_EXECUTION_DATE='2024-04-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-18T00:00:00+00:00'
+[2024-04-19T09:23:59.379+0000] {sql.py:276} INFO - Executing: 
+            create table if not exists youtube_data(
+                author character varying,
+                comment character varying,
+                like_count int,
+                date date,
+                time time
+            )
+        
+[2024-04-19T09:23:59.388+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-04-19T09:23:59.397+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-04-19T09:23:59.409+0000] {sql.py:457} INFO - Running statement: 
+            create table if not exists youtube_data(
+                author character varying,
+                comment character varying,
+                like_count int,
+                date date,
+                time time
+            )
+        , parameters: None
+[2024-04-19T09:23:59.423+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:407 AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+[2024-04-19T09:23:59.436+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=Youtube_ETL_DAG_v01, task_id=postgres_conn, execution_date=20240418T000000, start_date=20240419T092359, end_date=20240419T092359
+[2024-04-19T09:23:59.478+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-19T09:23:59.497+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/models/baseoperator.py:1201 AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+[2024-04-19T09:23:59.511+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
